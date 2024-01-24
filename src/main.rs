@@ -1,16 +1,12 @@
 fn main() {
     pub fn remove_duplicates(nums: &mut Vec<i32>) -> i32 {
-        let mut counter: usize = 0;
-        let mut numbers: Vec<i32> = nums.clone();
-        while counter < nums.len() as usize {
-            if numbers[counter] == numbers[counter + 1] {
-            numbers.remove(counter);
-            counter +=1;
-            } else {
-            counter +=1;
+        let mut j = 0;
+        for i in 1..nums.len() {
+            if nums[j] != nums[i] {
+                j += 1;
+                nums[j] = nums[i];
             }
         }
-        let k: i32 = numbers.len() as i32;
-        return k
+        (j + 1) as i32
     }
 }
